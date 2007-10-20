@@ -8,7 +8,7 @@ Version: 1.2.3
 Release: %mkrel 1
 License: LGPL
 Group: System/Libraries
-URL: http://loudmouth.imendio.org/
+URL: http://www.loudmouth-project.org/
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: glib2-devel
