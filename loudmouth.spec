@@ -10,7 +10,6 @@ License: LGPL
 Group: System/Libraries
 URL: http://www.loudmouth-project.org/
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: glib2-devel
 BuildRequires: gnutls-devel >= 1.0.0
 BuildRequires: libidn-devel
