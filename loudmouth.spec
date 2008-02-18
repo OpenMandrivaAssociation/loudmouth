@@ -2,7 +2,7 @@
 %define lib_major 0
 %define api_version 1
 
-Summary: Loudmouth is a C library for programming with the Jabber protocol
+Summary: C library for programming with the Jabber protocol
 Name: loudmouth
 Version: 1.2.3
 Release: %mkrel 3
