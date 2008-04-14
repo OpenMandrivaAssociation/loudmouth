@@ -1,12 +1,13 @@
 %define lib_name %mklibname %{name}- %{api_version} %{lib_major}
+%define devel_name %mklibname -d %{name} 
 %define lib_major 0
 %define api_version 1
 
 Summary: C library for programming with the Jabber protocol
 Name: loudmouth
-Version: 1.2.3
-Release: %mkrel 4
-License: LGPL
+Version: 1.3.4
+Release: %mkrel 1
+License: LGPLv2+
 Group: System/Libraries
 URL: http://www.loudmouth-project.org/
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
@@ -30,16 +31,17 @@ Loudmouth is a lightweight and easy-to-use C library for programming with the
 Jabber protocol. It's designed to be easy to get started with and yet
 extensible to let you do anything the Jabber protocol allows.
 
-%package -n %{lib_name}-devel
+%package -n %{devel_name}
 Summary:	Libraries and include files for loudmouth
 Group:		Development/GNOME and GTK+
 Provides:	%{name}-devel = %{version}-%{release}
 Provides:	lib%{name}-%{api_version}-devel = %{version}-%{release}
 Provides:	lib%{name}-devel = %{version}-%{release}
 Requires:	%{lib_name} = %{version}
-Requires:   glib2-devel
+Requires:	glib2-develi
+Obsoletes:	%mklibname %{name}- 1 0
 
-%description -n %{lib_name}-devel
+%description -n %{devel_name}
 Loudmouth is a lightweight and easy-to-use C library for programming with the
 Jabber protocol. It's designed to be easy to get started with and yet
 extensible to let you do anything the Jabber protocol allows.
@@ -52,7 +54,7 @@ Loudmouth applications.
 
 %build
 
-%configure2_5x --enable-gtk-doc 
+%configure --enable-gtk-doc
 
 %make
 
@@ -72,7 +74,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 %{_libdir}/*-%{api_version}.so.%{lib_major}*
 
-%files -n %{lib_name}-devel
+%files -n %{devel_name}
 %defattr(-,root,root,-)
 %doc README AUTHORS NEWS ChangeLog
 %doc %{_datadir}/gtk-doc/html/*
