@@ -6,7 +6,7 @@
 Summary: C library for programming with the Jabber protocol
 Name: loudmouth
 Version: 1.3.4
-Release: %mkrel 1
+Release: %mkrel 2
 License: LGPLv2+
 Group: System/Libraries
 URL: http://www.loudmouth-project.org/
@@ -38,8 +38,8 @@ Provides:	%{name}-devel = %{version}-%{release}
 Provides:	lib%{name}-%{api_version}-devel = %{version}-%{release}
 Provides:	lib%{name}-devel = %{version}-%{release}
 Requires:	%{lib_name} = %{version}
-Requires:	glib2-develi
-Obsoletes:	%mklibname %{name}- 1 0
+Requires:	glib2-devel
+Obsoletes:	%mklibname -d %{name}- 1 0
 
 %description -n %{devel_name}
 Loudmouth is a lightweight and easy-to-use C library for programming with the
