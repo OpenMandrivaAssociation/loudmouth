@@ -6,7 +6,7 @@
 Summary: C library for programming with the Jabber protocol
 Name: loudmouth
 Version: 1.4.0
-Release: %mkrel 1
+Release: %mkrel 2
 License: LGPLv2+
 Group: System/Libraries
 URL: http://www.loudmouth-project.org/
@@ -54,7 +54,7 @@ Loudmouth applications.
 
 %build
 
-%configure --enable-gtk-doc
+%configure2_5x --enable-gtk-doc --with-asyncns
 
 %make
 
