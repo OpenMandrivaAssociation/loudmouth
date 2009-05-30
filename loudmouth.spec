@@ -6,11 +6,12 @@
 Summary: C library for programming with the Jabber protocol
 Name: loudmouth
 Version: 1.4.3
-Release: %mkrel 2
+Release: %mkrel 3
 License: LGPLv2+
 Group: System/Libraries
 URL: http://www.loudmouth-project.org/
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
+Patch0: loudmouth-1.4.3-gnutls-2.8.patch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: glib2-devel
 BuildRequires: gnutls-devel >= 1.0.0
@@ -51,9 +52,10 @@ Loudmouth applications.
 
 %prep
 %setup -q
+%patch0 -p0
 
 %build
-
+autoreconf -fi
 %configure2_5x --enable-gtk-doc --with-asyncns
 
 %make
