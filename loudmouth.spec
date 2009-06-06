@@ -6,12 +6,23 @@
 Summary: C library for programming with the Jabber protocol
 Name: loudmouth
 Version: 1.4.3
-Release: %mkrel 3
+Release: %mkrel 4
 License: LGPLv2+
 Group: System/Libraries
 URL: http://www.loudmouth-project.org/
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 Patch0: loudmouth-1.4.3-gnutls-2.8.patch
+
+# Debian patches, from upstream
+# Fix sasl md5 digest-uri when using SRV lookups, which prevented
+# loudmouth from logging into recent versions of ejabberd
+Patch101: 01-fix-sasl-md5-digest-uri.patch
+# Fix sync resolving, patch from upstream git. (fixes assertion
+# when trying to log in to some XMPP servers)
+Patch102: 02-fix-async-resolving.patch
+# Drop stanzas that can't be parsed instead of blocking the
+# parser. Patch from upstream bug tracker.
+Patch103: 03-drop-stanzas-on-fail.patch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: glib2-devel
 BuildRequires: gnutls-devel >= 1.0.0
@@ -53,6 +64,9 @@ Loudmouth applications.
 %prep
 %setup -q
 %patch0 -p0
+%patch101 -p1
+%patch102 -p1
+%patch103 -p1
 
 %build
 autoreconf -fi
