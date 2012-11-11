@@ -1,0 +1,22 @@
+diff -ur loudmouth-1.4.3/loudmouth/lm-connection.c loudmouth-1.4.3.new/loudmouth/lm-connection.c
+--- loudmouth-1.4.3/loudmouth/lm-connection.c	2008-10-29 21:38:26.000000000 +0100
++++ loudmouth-1.4.3.new/loudmouth/lm-connection.c	2009-06-06 16:53:12.000000000 +0200
+@@ -1442,10 +1442,17 @@
+ 		connection->jid, connection->resource);
+ 
+ 	if (connection->use_sasl) {
++		gchar *domain = NULL;
++
++		if (!connection_get_server_from_jid (connection->jid, &domain)) {
++			domain = g_strdup (connection->server);
++		}
++
+ 		lm_sasl_authenticate (connection->sasl,
+ 				      username, password,
+-				      connection->server,
++				      domain,
+ 				      connection_sasl_auth_finished);
++		g_free (domain);
+ 
+ 		connection->features_cb  =
+ 			lm_message_handler_new (connection_features_cb,
