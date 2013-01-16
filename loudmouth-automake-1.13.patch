@@ -1,0 +1,11 @@
+--- loudmouth-1.4.3/configure.ac.bero	2013-01-16 01:05:47.186549077 +0100
++++ loudmouth-1.4.3/configure.ac	2013-01-16 01:05:53.322477958 +0100
+@@ -7,7 +7,7 @@ AC_COPYRIGHT([
+ ])
+ 
+ AC_CONFIG_SRCDIR(loudmouth/loudmouth.h)
+-AM_CONFIG_HEADER(config.h)
++AC_CONFIG_HEADERS([config.h])
+ AM_INIT_AUTOMAKE(1.9 dist-bzip2 no-define)
+ 
+ AM_MAINTAINER_MODE
