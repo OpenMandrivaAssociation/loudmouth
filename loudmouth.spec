@@ -13,10 +13,8 @@ License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://www.loudmouth-project.org/
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/loudmouth/%{url_ver}/%{name}-%{version}.tar.bz2
-Patch0:		loudmouth-1.4.3-gnutls-2.8.patch
 Patch1:		loudmouth-1.4.3_glib_h.patch
 Patch2:		loudmouth-automake-1.13.patch
-
 # Debian patches, from upstream
 # Fix sasl md5 digest-uri when using SRV lookups, which prevented
 # loudmouth from logging into recent versions of ejabberd
@@ -28,6 +26,8 @@ Patch102:	02-fix-async-resolving.patch
 # parser. Patch from upstream bug tracker.
 Patch103:	03-drop-stanzas-on-fail.patch
 Patch104:	loudmouth-1.4.3-certs_location.patch
+Patch105:	04-use-pkg-config-for-gnutls.patch
+Patch106:	gnutls-3.4.0.patch
 
 BuildRequires:	gtk-doc
 BuildRequires:	pkgconfig(glib-2.0)
@@ -88,4 +88,3 @@ autoreconf -fi
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*
 %{_includedir}/*
-
