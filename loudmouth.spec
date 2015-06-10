@@ -27,6 +27,7 @@ Patch102:	02-fix-async-resolving.patch
 # Drop stanzas that can't be parsed instead of blocking the
 # parser. Patch from upstream bug tracker.
 Patch103:	03-drop-stanzas-on-fail.patch
+Patch104:	loudmouth-1.4.3-certs_location.patch
 
 BuildRequires:	gtk-doc
 BuildRequires:	pkgconfig(glib-2.0)
@@ -68,7 +69,7 @@ Loudmouth applications.
 autoreconf -fi
 
 %build
-%configure2_5x \
+%configure \
 	--disable-static \
 	--enable-gtk-doc \
 	--with-asyncns
