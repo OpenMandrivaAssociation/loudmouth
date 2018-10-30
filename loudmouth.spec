@@ -8,7 +8,7 @@
 Summary:	C library for programming with the Jabber protocol
 Name:		loudmouth
 Version:	1.4.3
-Release:	20
+Release:	21
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://www.loudmouth-project.org/
