@@ -64,20 +64,19 @@ This package includes libraries and header files for developing
 Loudmouth applications.
 
 %prep
-%setup -q
-%apply_patches
+%autosetup -p1
 autoreconf -fi
 
 %build
 %configure \
 	--disable-static \
-	--enable-gtk-doc \
+	--disable-gtk-doc \
 	--with-asyncns
 
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 %files -n %{libname}
 %{_libdir}/libloudmouth-%{api}.so.%{major}*
