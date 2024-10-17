@@ -11,7 +11,7 @@ Version:	1.4.3
 Release:	23
 License:	LGPLv2+
 Group:		System/Libraries
-Url:		http://www.loudmouth-project.org/
+Url:		https://www.loudmouth-project.org/
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/loudmouth/%{url_ver}/%{name}-%{version}.tar.bz2
 Patch1:		loudmouth-1.4.3_glib_h.patch
 Patch2:		loudmouth-automake-1.13.patch
